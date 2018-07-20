@@ -1,0 +1,52 @@
+<div class="col-md-12">
+
+    <div class="col-md-8 col-md-offset-2 button-wrapper" style="padding-top: 5vh;">
+
+        <h4 class="col-md-12" style="text-align: center; color: floralwhite;"> Game Token </h4>
+        <h3 class="col-md-12" style="text-align: center; color: floralwhite;"> {{ctrl.gameToken}} </h3>
+
+        <div class="col-md-12" ng-show="ctrl.gameState == 0">
+            <div class="col-md-12 btn btn-reddrop" ng-click="ctrl.startGame()" style="margin-bottom: 15px;">
+                Start Game
+            </div>
+        </div>
+
+        <div class="col-md-12" ng-show="ctrl.gameState == 1">
+            <div class="col-md-6" ng-repeat="card in ctrl.cards" ng-click="ctrl.playCard(card)">
+                <img src="images/guardian.png" ng-show="card.cardType == 'GUARDIAN'" style="width: 100%">
+                <img src="images/priest.png" ng-show="card.cardType == 'PRIEST'" style="width: 100%">
+                <img src="images/baron.png" ng-show="card.cardType == 'BARON'" style="width: 100%">
+                <img src="images/handmaiden.png" ng-show="card.cardType == 'HANDMAIDEN'" style="width: 100%">
+                <img src="images/prince.png" ng-show="card.cardType == 'PRINCE'" style="width: 100%">
+                <img src="images/king.png" ng-show="card.cardType == 'KING'" style="width: 100%">
+                <img src="images/countess.png" ng-show="card.cardType == 'COUNTESS'" style="width: 100%">
+                <img src="images/princess.png" ng-show="card.cardType == 'PRINCESS'" style="width: 100%">
+            </div>
+        </div>
+
+        <div class="col-md-12" ng-show="ctrl.gameState == 2">
+            <div class="col-md-6 btn btn-reddrop" ng-disabled="player.elim" ng-click="ctrl.choosePlayer(player)" ng-repeat="player in ctrl.players" style="margin-bottom: 15px;">
+                {{ player.username }}
+            </div>
+        </div>
+
+        <!--<div class="col-md-12">
+            <div class="panel panel-reddrop">
+                <div class="panel-heading">
+                    {{ ctrl.myCard.name }} ({{ ctrl.myCard.value }})
+                </div>
+                <div class="panel-body">
+                    {{ ctrl.myCard.lore }}
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div ng-repeat="player in ctrl.players">
+                {{ player.username }}
+            </div>
+        </div>-->
+
+    </div>
+
+</div>
